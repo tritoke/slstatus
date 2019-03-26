@@ -4,7 +4,7 @@
 const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
-static const char unknown_str[] = "n/a";
+static const char unknown_str[] = "";
 
 /* maximum output string length */
 #define MAXLEN 2048
@@ -66,7 +66,10 @@ static const struct arg args[] = {
 	{ datetime,     " %s",        "%F %T"     },
 	{ battery_perc, " | BAT1:%s", "BAT1"      },
 	{ battery_perc, " | BAT0:%s", "BAT0"      },
-	{ ipv4,         " | %s",      "wlan0"     },
-	{ ram_free,     " | %s",      NULL        },
+	{ ipv4,         " | WIFI:%s", "wlan0"     },
+	{ ipv4,         "%s",         "wlp3s0"    },
+	{ ipv4,         " | ETH:%s",  "enp0s31f6" },
+	{ ram_used,     " | %s",      NULL        },
+	{ ram_total,    " / %s",      NULL        },
 	{ disk_free,    " | %s ",      "/"        },
 };
