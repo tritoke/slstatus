@@ -61,15 +61,35 @@ static const char unknown_str[] = "";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
+
 static const struct arg args[] = {
 	/* function format          argument */
-	{ datetime,     " %s",        "%F %T"     },
-	{ battery_perc, " | BAT1:%s", "BAT1"      },
-	{ battery_perc, " | BAT0:%s", "BAT0"      },
-	{ ipv4,         " | WIFI:%s", "wlan0"     },
-	{ ipv4,         "%s",         "wlp3s0"    },
-	{ ipv4,         " | ETH:%s",  "enp0s31f6" },
-	{ ram_used,     " | %s",      NULL        },
-	{ ram_total,    " / %s",      NULL        },
-	{ disk_free,    " | %s ",      "/"        },
+  /* CPU info */
+  { cpu_perc, " CPU: %s%%", NULL},
+  { cpu_freq, " %sHz", NULL},
+  { temp, " %s°C", "/sys/class/thermal/thermal_zone0/temp"},
+
+  /* RAM info */
+	{ ram_used, " | RAM: %s", NULL },
+
+  /* Disk usage info */
+	{ disk_free, " | SSD: %s", "/" },
+
+  /* WiFi is a mess because my PC likes to switch between naming the interface wlan0 and wlp3s0... */
+  { wifi_essid, " | WiFi: (%s", "wlan0" },
+  { wifi_essid, "%s ", "wlp3s0" },
+	{ wifi_perc, "%s", "wlan0" },
+	{ wifi_perc, "%s%%) ", "wlp3s0" },
+	{ ipv4, "%s", "wlan0" },
+	{ ipv4, "%s", "wlp3s0" },
+
+  /* battery stuff */
+  { battery_perc, " | BAT0: %s%%", "BAT0" },
+	{ battery_perc, " | BAT1: %s%%", "BAT1" },
+
+  /* volume */
+  { run_command, " | VOL: %s", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
+
+  /* date */
+  { datetime, " | %s", "[%a] %F %T " },
 };
