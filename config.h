@@ -76,12 +76,9 @@ static const struct arg args[] = {
 	{ disk_free, " | SSD: %s", "/" },
 
   /* WiFi is a mess because my PC likes to switch between naming the interface wlan0 and wlp3s0... */
-  { wifi_essid, " | WiFi: (%s", "wlan0" },
-  { wifi_essid, "%s ", "wlp3s0" },
-	{ wifi_perc, "%s", "wlan0" },
-	{ wifi_perc, "%s%%) ", "wlp3s0" },
-	{ ipv4, "%s", "wlan0" },
-	{ ipv4, "%s", "wlp3s0" },
+  { wifi_essid, " | WiFi: (%s)", "wlan0" },
+	{ wifi_perc, " %s%%", "wlan0" },
+	{ ipv4, " %s", "wlan0" },
 
   /* battery stuff */
   { battery_perc, " | BAT0: %s%%", "BAT0" },
