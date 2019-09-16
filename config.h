@@ -62,33 +62,6 @@ static const char unknown_str[] = "";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 
-#ifdef DESKTOP
-
-static const struct arg args[] = {
-	/* function format          argument */
-  /* CPU info */
-  { cpu_perc, " CPU: %s%%", NULL},
-  { cpu_freq, " %sHz", NULL},
-  { temp, " %s°C", "/sys/class/thermal/thermal_zone0/temp"},
-
-  /* RAM info */
-	{ ram_used, " | RAM: %s", NULL },
-
-  /* Disk usage info */
-	{ disk_free, " | DISK: %s", "/" },
-
-  /* WiFi is a mess because my PC likes to switch between naming the interface wlan0 and wlp3s0... */
-	{ ipv4, " | ETH: %s", "eno1" },
-
-  /* volume */
-  { run_command, " | VOL: %s", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
-
-  /* date */
-  { datetime, " | %s", "[%a] %F %T " },
-};
-
-#else
-
 static const struct arg args[] = {
 	/* function format          argument */
   /* CPU info */
@@ -119,5 +92,3 @@ static const struct arg args[] = {
   /* date */
   { datetime, " | %s", "[%a] %F %T " },
 };
-
-#endif
