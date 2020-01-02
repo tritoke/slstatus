@@ -75,19 +75,17 @@ static const struct arg args[] = {
   /* Disk usage info */
 	{ disk_free, " | DISK: %s", "/" },
 
-  /* WiFi is a mess because my PC likes to switch between naming the interface wlan0 and wlp3s0... */
+  /* wifi usage */
   { wifi_essid, " | WiFi: (%s)", "wlan0" },
 	{ wifi_perc, " %s%%", "wlan0" },
 	{ ipv4, " %s", "wlan0" },
-
-	{ ipv4, " | ETH: %s", "enp0s31f6" },
 
   /* battery stuff */
   { battery_perc, " | BAT0: %s%%", "BAT0" },
 	{ battery_perc, " | BAT1: %s%%", "BAT1" },
 
   /* volume */
-  { run_command, " | VOL: %s", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1" },
+  { run_command, " | VOL: %s", "pamixer --get-volume-human" },
 
   /* date */
   { datetime, " | %s", "[%a] %F %T " },
