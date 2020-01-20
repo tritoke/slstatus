@@ -82,7 +82,9 @@ static const struct arg args[] = {
 
   /* battery stuff */
   { battery_perc, "[BAT(0|1): (%s", "BAT0" },
-	{ battery_perc, "|%s)]", "BAT1" },
+  { battery_state, "%s", "BAT0" },
+	{ battery_perc, "|%s", "BAT1" },
+  { battery_state, "%s)]", "BAT1" },
 
   /* brightness */
   { run_command, "[LUX: %s]", "xbacklight | cut -d. -f1" },
