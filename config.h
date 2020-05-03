@@ -64,34 +64,34 @@ static const char unknown_str[] = "";
 
 static const struct arg args[] = {
 	/* function format          argument */
-  /* CPU info */
-  { cpu_perc, "[CPU: %s%%", NULL},
-  { cpu_freq, " %sHz", NULL},
-  { temp, " %s°C]", "/sys/class/thermal/thermal_zone0/temp"},
+	/* CPU info */
+	{ cpu_perc, "[CPU: %s%%", NULL},
+	{ cpu_freq, " %sHz", NULL},
+	{ temp, " %s°C]", "/sys/class/thermal/thermal_zone0/temp"},
 
-  /* RAM info */
+	/* RAM info */
 	{ ram_used, "[RAM: %s]", NULL },
-
-  /* Disk usage info */
+	
+	/* Disk usage info */
 	{ disk_free, "[DISK: %s]", "/" },
 
-  /* wifi usage */
-  { wifi_essid, "[WiFi: (%s)", "wlan0" },
+	/* wifi usage */
+	{ wifi_essid, "[WiFi: (%s)", "wlan0" },
 	{ wifi_perc, " %s%%", "wlan0" },
 	{ ipv4, " %s]", "wlan0" },
 
-  /* battery stuff */
-  { battery_perc, "[BAT(0|1): (%s", "BAT0" },
-  { battery_state, "%s", "BAT0" },
+	/* battery stuff */
+	{ battery_perc, "[BAT(0|1): (%s", "BAT0" },
+	{ battery_state, "%s", "BAT0" },
 	{ battery_perc, "|%s", "BAT1" },
-  { battery_state, "%s)]", "BAT1" },
+	{ battery_state, "%s)]", "BAT1" },
 
-  /* brightness */
-  { run_command, "[LUX: %s]", "xbacklight | cut -d. -f1" },
+	/* brightness */
+	{ run_command, "[LUX: %s]", "xbacklight | cut -d. -f1" },
 
-  /* volume */
-  { run_command, "[VOL: %s]", "pamixer --get-volume-human" },
+	/* volume */
+	{ run_command, "[VOL: %s]", "pamixer --get-volume-human" },
 
-  /* date */
-  { datetime, "[%s]", "%a %d %b %R:%S %Y" },
+	/* date */
+	{ datetime, "[%s]", "%a %d %b %R:%S %Y" },
 };
