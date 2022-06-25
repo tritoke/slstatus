@@ -83,7 +83,7 @@ static const struct arg args[] = {
 	{ ipv4, " %s" SEP, "wlan0" },
 
 	/* volume */
-	{ run_command, "VOL: %s" SEP, "if [ \"$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o no)\" = \"no\" ]; then pactl get-sink-volume @DEFAULT_SINK@ | grep -Eo '[0-9]{2}%' | head -1; else echo \"Mute\"; fi" },
+	{ run_command, "VOL: %s" SEP, "if [ \"$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o no)\" = \"no\" ]; then pactl get-sink-volume @DEFAULT_SINK@ | grep -Eo '[0-9]{1,2}%' | head -1; else echo \"Mute\"; fi" },
 
 	/* date */
 	{ datetime, "%s ", "%a %d %b %R:%S %Y" },
