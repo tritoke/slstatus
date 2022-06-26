@@ -67,9 +67,9 @@ static const char unknown_str[] = "";
 static const struct arg args[] = {
 	/* function format          argument */
 	/* CPU info */
-	{ cpu_perc, "CPU: %s%%", NULL},
-	{ cpu_freq, " %sHz", NULL},
-	{ temp, " %s°C" SEP, "/sys/class/hwmon/hwmon2/temp2_input"},
+	{ cpu_perc, "CPU: %s%%", NULL },
+	{ cpu_freq, " %sHz", NULL },
+	{ temp, " %s°C" SEP, "/sys/class/thermal/thermal_zone0/temp" },
 
 	/* RAM info */
 	{ ram_used, "RAM: %s" SEP, NULL },
@@ -81,6 +81,15 @@ static const struct arg args[] = {
 	{ wifi_essid, "WiFi: (%s)", "wlan0" },
 	{ wifi_perc, " %s%%", "wlan0" },
 	{ ipv4, " %s" SEP, "wlan0" },
+
+	/* battery stuff */
+	{ battery_perc, "BAT: %s", "BAT0" },
+	{ battery_state, "%s", "BAT0" },
+	{ battery_perc, "|%s", "BAT1" },
+	{ battery_state, "%s" SEP, "BAT1" },
+	
+	/* brightness */
+	{ run_command, "LUX: %s" SEP, "xbacklight | cut -d. -f1" },
 
 	/* volume */
 	{ run_command, "VOL: %s" SEP, "if [ \"$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o no)\" = \"no\" ]; then pactl get-sink-volume @DEFAULT_SINK@ | grep -Eo '[0-9]{1,2}%' | head -1; else echo \"Mute\"; fi" },
