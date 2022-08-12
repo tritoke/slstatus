@@ -82,6 +82,9 @@ static const struct arg args[] = {
 	{ wifi_perc, " %s%%", "wlan0" },
 	{ ipv4, " %s" SEP, "wlan0" },
 
+	/* Eth address */
+	{ ipv4, "ETH: %s" SEP, "enp0s31f6" },
+
 	/* battery stuff */
 	{ battery_perc, "BAT: %s", "BAT0" },
 	{ battery_state, "%s", "BAT0" },
