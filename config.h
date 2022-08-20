@@ -69,7 +69,7 @@ static const struct arg args[] = {
 	/* CPU info */
 	{ cpu_perc, "CPU: %s%%", NULL},
 	{ cpu_freq, " %sHz", NULL},
-	{ temp, " %s°C" SEP, "/sys/class/hwmon/hwmon2/temp2_input"},
+	{ temp, " %s°C" SEP, "/sys/class/hwmon/hwmon3/temp3_input"},
 
 	/* RAM info */
 	{ ram_used, "RAM: %s" SEP, NULL },
@@ -82,8 +82,12 @@ static const struct arg args[] = {
 	{ wifi_perc, " %s%%", "wlan0" },
 	{ ipv4, " %s" SEP, "wlan0" },
 
+	/* Etherner */
+	{ ipv4, "Eth (%s" , "enp43s0" },
+	{ ipv4, "|%s)" SEP, "enp36s0" },
+
 	/* volume */
-	{ run_command, "VOL: %s" SEP, "if [ \"$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o no)\" = \"no\" ]; then pactl get-sink-volume @DEFAULT_SINK@ | grep -Eo '[0-9]{1,2}%' | head -1; else echo \"Mute\"; fi" },
+	{ run_command, "VOL: %s" SEP, "if [ \"$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o no)\" = \"no\" ]; then pactl get-sink-volume @DEFAULT_SINK@ | grep -Eo '[0-9]{1,3}%' | head -1; else echo \"Mute\"; fi" },
 
 	/* date */
 	{ datetime, "%s ", "%a %d %b %R:%S %Y" },
