@@ -62,6 +62,10 @@ static const char unknown_str[] = "";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 
+#define WLAN "wlp0s20f3"
+#define ETH0 "enp0s31f6"
+#define ETH1 "enxf4a80d165325"
+
 /* use unicode vertical bar as separator */
 #define SEP " │ "
 static const struct arg args[] = {
@@ -69,7 +73,7 @@ static const struct arg args[] = {
 	/* CPU info */
 	{ cpu_perc, "CPU: %s%%", NULL},
 	{ cpu_freq, " %sHz", NULL},
-	{ temp, " %s°C" SEP, "/sys/class/hwmon/hwmon3/temp3_input"},
+	{ temp, " %s°C" SEP, "/sys/class/hwmon/hwmon6/temp2_input"},
 
 	/* RAM info */
 	{ ram_used, "RAM: %s" SEP, NULL },
@@ -78,13 +82,13 @@ static const struct arg args[] = {
 	{ disk_free, "/: %s" SEP, "/" },
 
 	/* wifi usage */
-	{ wifi_essid, "WiFi: (%s)", "wlan0" },
-	{ wifi_perc, " %s%%", "wlan0" },
-	{ ipv4, " %s" SEP, "wlan0" },
+	{ wifi_essid, "WiFi: (%s)", WLAN },
+	{ wifi_perc, " %s%%", WLAN },
+	{ ipv4, " %s" SEP, WLAN },
 
 	/* Etherner */
-	{ ipv4, "Eth (%s" , "enp43s0" },
-	{ ipv4, "|%s)" SEP, "enp36s0" },
+	{ ipv4, "Eth (%s" , ETH0 },
+	{ ipv4, "|%s)" SEP, ETH1 },
 
 	/* volume */
 	{ run_command, "VOL: %s", "if [ \"$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o no)\" = \"no\" ]; then pactl get-sink-volume @DEFAULT_SINK@ | grep -Eo '[0-9]{1,2}%' | head -1; else echo \"Mute\"; fi" },
