@@ -73,7 +73,7 @@ static const struct arg args[] = {
 	/* CPU info */
 	{ cpu_perc, "CPU: %s%%", NULL},
 	{ cpu_freq, " %sHz", NULL},
-	{ temp, " %s°C" SEP, "/sys/class/hwmon/hwmon6/temp2_input"},
+	{ temp, " %s°C" SEP, "/sys/class/hwmon/hwmon6/temp1_input"},
 
 	/* RAM info */
 	{ ram_used, "RAM: %s" SEP, NULL },
