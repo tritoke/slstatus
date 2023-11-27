@@ -86,6 +86,9 @@ static const struct arg args[] = {
 	{ wifi_perc, " %s%%", WLAN },
 	{ ipv4, " %s" SEP, WLAN },
 
+	/* Backlight */
+	{ run_command, "LUX: %s%" SEP, "light -s sysfs/backlight/intel_backlight" },
+
 	/* Battery */
 	{ battery_perc, "BAT %s%%" , "BAT0" },
 	{ battery_state, "%s" SEP, "BAT0" },
