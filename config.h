@@ -80,10 +80,12 @@ static const struct arg args[] = {
 	/* wifi usage */
 	{ wifi_essid, "WiFi: (%s)", "wlan0" },
 	{ wifi_perc, " %s%%", "wlan0" },
-	{ ipv4, " %s" SEP, "wlan0" },
+	{ ipv4, " %s", "wlan0" },
+	{ ipv6, "[%s]" SEP, "wlan0" },
 
 	/* Eth address */
-	{ ipv4, "ETH: %s" SEP, "enp0s31f6" },
+	{ ipv4, "ETH: %s", "enp0s31f6" },
+	{ ipv6, "[%s]" SEP, "enp0s31f6" },
 
 	/* battery stuff */
 	{ battery_perc, "BAT: %s", "BAT0" },
