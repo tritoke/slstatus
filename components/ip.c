@@ -58,3 +58,10 @@ ipv6(const char *interface)
 {
 	return ip(interface, AF_INET6);
 }
+
+const char *
+ipv4_or_v6(const char *interface)
+{
+  const char *addr = ipv4(interface);
+  return addr ? addr : ipv6(interface);
+}

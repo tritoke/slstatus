@@ -27,6 +27,7 @@ const char *hostname(void);
 /* ip */
 const char *ipv4(const char *interface);
 const char *ipv6(const char *interface);
+const char *ipv4_or_v6(const char *interface);
 
 /* kernel_release */
 const char *kernel_release(void);
