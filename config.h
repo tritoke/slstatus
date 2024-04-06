@@ -95,7 +95,7 @@ static const struct arg args[] = {
 	{ run_command, "LUX: %s" SEP, "xbacklight | cut -d. -f1" },
 
 	/* volume */
-	{ run_command, "VOL: %s", "if [ \"$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o no)\" = \"no\" ]; then pactl get-sink-volume @DEFAULT_SINK@ | grep -Eo '[0-9]{1,2}%' | head -1; else echo \"Mute\"; fi" },
+	{ run_command, "VOL: %s", "if [ \"$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o no)\" = \"no\" ]; then pactl get-sink-volume @DEFAULT_SINK@ | grep -Eo '[^ ]+%' | head -1; else echo \"Mute\"; fi" },
 
 	{ run_command, "%s" SEP, "bat=$(timeout 0.5 bluetoothctl info | grep -i battery | rev | cut -d'(' -f1 | rev | cut -d')' -f1); if [ ! \"$bat\" = \"\" ]; then echo \" BTBAT: $bat%\"; fi" },
 
