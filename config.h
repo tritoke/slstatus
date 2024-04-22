@@ -73,7 +73,7 @@ static const struct arg args[] = {
 	/* CPU info */
 	{ cpu_perc, "CPU: %s%%", NULL},
 	{ cpu_freq, " %sHz", NULL},
-	{ temp, " %s°C" SEP, "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input"},
+	{ run_command, " %s°C" SEP, "sensors -j coretemp-isa-0000 | jq '.\"coretemp-isa-0000\".\"Package id 0\".temp1_input'" },
 
 	/* RAM info */
 	{ ram_used, "RAM: %s" SEP, NULL },
