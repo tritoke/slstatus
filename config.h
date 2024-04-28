@@ -69,7 +69,7 @@ static const struct arg args[] = {
 	/* CPU info */
 	{ cpu_perc, "CPU: %s%%", NULL},
 	{ cpu_freq, " %sHz", NULL},
-	{ temp, " %s°C" SEP, "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon5/temp3_input" },
+	{ run_command, " %s°C" SEP, "sensors k10temp-pci-00c3 -j | jq '.\"k10temp-pci-00c3\".Tctl.temp1_input' | cut -d. -f1" },
 
 	/* RAM info */
 	{ ram_used, "RAM: %s" SEP, NULL },
