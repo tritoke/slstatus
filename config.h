@@ -62,7 +62,7 @@ static const char unknown_str[] = "";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 
-#define WLAN "wlp0s20f3"
+#define WLAN "wlan0"
 #define ETH0 "enp0s31f6"
 #define ETH1 "enxf4a80d165325"
 
