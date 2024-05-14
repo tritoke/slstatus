@@ -64,7 +64,7 @@ static const char unknown_str[] = "";
 
 #define WLAN "wlan0"
 #define ETH0 "enp0s31f6"
-#define ETH1 "enxf4a80d165325"
+#define ETH1 "enp84s0u1"
 
 /* use unicode vertical bar as separator */
 #define SEP " │ "
