@@ -76,6 +76,7 @@ static const struct arg args[] = {
 	
 	/* Disk usage info */
 	{ disk_free, "/: %s" SEP, "/" },
+	{ disk_free, "~: %s" SEP, "/home/samleonard/" },
 
 	/* wifi usage */
 	{ wifi_essid, "WiFi: (%s)", "wlan0" },
