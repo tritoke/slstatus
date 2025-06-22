@@ -82,9 +82,9 @@ static const struct arg args[] = {
 	{ wifi_perc, " %s%%", "wlan0" },
 	{ ipv4, " %s" SEP, "wlan0" },
 
-	/* Etherner */
-	{ ipv4, "Eth (%s" , "enp43s0" },
-	{ ipv4, "|%s)" SEP, "enp36s0" },
+	/* Ethernet */
+	{ ipv4, "Eth (%s", "enp9s0" },
+	{ ipv4, "|%s)" SEP, "enp10s0" },
 
 	/* volume */
 	{ run_command, "VOL: %s", "if [ \"$(pactl get-sink-mute @DEFAULT_SINK@ | grep -o no)\" = \"no\" ]; then pactl get-sink-volume @DEFAULT_SINK@ | grep -Eo '[^ ]+%' | head -1; else echo \"Mute\"; fi" },
